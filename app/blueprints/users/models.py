@@ -1,6 +1,6 @@
 from datetime import datetime
-from db import db
-from constants import UserType
+from app import db
+from app.constants import UserType
 
 
 class User(db.Model):

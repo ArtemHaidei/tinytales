@@ -1,4 +1,5 @@
-from db import db
+from app import db
+from app.constants import PostStatus
 
 
 class Post(db.Model):
@@ -9,7 +10,7 @@ class Post(db.Model):
     content = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
-    status = db.Column(db.String(20), nullable=False)
+    status = db.Column(db.Enum(PostStatus), nullable=False, default=PostStatus.DRAFT)
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):

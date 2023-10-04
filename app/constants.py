@@ -6,3 +6,8 @@ class UserType(Enum):
     READER = 'reader'
     ADMIN = 'admin'
 
+
+class PostStatus(Enum):
+    DRAFT = 'draft'
+    PUBLISHED = 'published'
+    DELETED = 'deleted'
