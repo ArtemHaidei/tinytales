@@ -1,9 +1,9 @@
 from marshmallow import Schema, fields, validate, post_load
 from marshmallow_enum import EnumField
 from models import User
-from constants import UserType
-from users.utils import validate_password
-from posts import PostSchema
+from app.constants import UserType
+from utils import validate_password
+from app.blueprints.posts.schemas import PostSchema
 
 
 class UserSchema(Schema):
