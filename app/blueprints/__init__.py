@@ -1,5 +1,10 @@
-from users import UsersBlueprint, UserSchema, User
-from posts import PostsBlueprint, PostSchema, Post
-from auth import AuthBlueprint
+from .main import MainBlueprint
 
-from users import validate_password
+from .users import UsersBlueprint
+from .users.models import User
+
+
+from .posts import PostsBlueprint
+from .posts.models import Post
+
+from .auth import AuthBlueprint

@@ -1,5 +1,6 @@
 from marshmallow import Schema, fields, validate
-from users import UserSchema
+
+from app.blueprints.users.schemas import UserSchema
 
 
 class PostSchema(Schema):

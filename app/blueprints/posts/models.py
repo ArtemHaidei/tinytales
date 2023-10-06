@@ -11,7 +11,7 @@ class Post(db.Model):
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
     status = db.Column(db.Enum(PostStatus), nullable=False, default=PostStatus.DRAFT)
-    author_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     def __repr__(self):
         return f"<Post {self.title}>"

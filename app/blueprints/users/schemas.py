@@ -1,8 +1,8 @@
 from marshmallow import Schema, fields, validate, post_load
 from marshmallow_enum import EnumField
-from models import User
+from .models import User
 from app.constants import UserType
-from utils import validate_password
+from .utils import validate_password
 from app.blueprints.posts.schemas import PostSchema
 
 
