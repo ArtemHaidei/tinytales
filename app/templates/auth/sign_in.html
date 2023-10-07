@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form class="sign-up-form">
+            <h1>Sign In</h1>
+            <input type="email" placeholder="Email" name="email" class="input-field">
+            <input type="password" placeholder="Password" name="password" class="input-field">
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+{% endblock %}
