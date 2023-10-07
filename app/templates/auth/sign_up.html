@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth/sign.css') }}">
+{% endblock %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form class="sign-up-form" method="post">
+            <h1>Sign Up</h1>
+            {{ form.hidden_tag() }}
+            {{ form.first_name(placeholder="First Name", class="input-field") }}
+            {{ form.last_name(placeholder="Last Name", class="input-field") }}
+            {{ form.email(placeholder="Email", class="input-field") }}
+            {{ form.user_type(class="input-field") }}
+            {{ form.password(placeholder="Password", class="input-field") }}
+            {{ form.confirm_password(placeholder="Confirm Password", class="input-field") }}
+            {{ form.submit(class="submit-button") }}
+        </form>
+    </div>
+{% endblock %}

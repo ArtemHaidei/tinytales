@@ -2,12 +2,13 @@ from enum import Enum
 
 
 class UserType(Enum):
-    AUTHOR = 'author'
-    READER = 'reader'
-    ADMIN = 'admin'
+    AUTHOR = 'author', 'Author'
+    READER = 'reader', 'Reader'
+    ADMIN = 'admin', 'Admin'
 
 
 class PostStatus(Enum):
-    DRAFT = 'draft'
-    PUBLISHED = 'published'
-    DELETED = 'deleted'
+    DRAFT = 'draft', 'Draft'
+    PUBLISHED = 'published', 'Published'
+    ARCHIVED = 'archived', 'Archived'
+    DELETED = 'deleted', 'Deleted'
