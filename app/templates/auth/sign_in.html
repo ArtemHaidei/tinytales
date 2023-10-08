@@ -11,8 +11,27 @@
         <form class="sign-up-form" method="post">
             <h1>Sign In</h1>
             {{ form.hidden_tag() }}
+
+            {% if get_flashed_messages(category_filter=["email_error"]) %}
+                {% for message in get_flashed_messages(category_filter=["email_error"]) %}
+                    <div class="alert alert-warning" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             {{ form.email(placeholder="Email", class="input-field") }}
+
             {{ form.password(placeholder="Password", class="input-field") }}
+
+            {% if get_flashed_messages(category_filter=["password_error"]) %}
+                {% for message in get_flashed_messages(category_filter=["password_error"]) %}
+                    <div class="alert alert-warning" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>

@@ -23,7 +23,7 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 20px;
-    width: 300px;
+    width: 400px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -54,4 +54,13 @@ body {
 
 .submit-button:hover {
     background-color: #45a049;
+}
+
+.alert-warning {
+    font-size: 14px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
 }
