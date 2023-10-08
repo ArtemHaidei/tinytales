@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, flash, url_for
 from .forms import PostForm
 
 
@@ -12,10 +12,12 @@ def blog():
 
 def post_create():
     form = PostForm()
+    post_created = False
     if form.validate_on_submit():
         title = form.title.data
         content = form.content.data
         status = form.status.data
-        print(title, content, status)
-        return "<h1>Post Create Success</h1>"
-    return render_template('posts/post_create.html', title='Create Post', form=form)
+        post_created = True
+        flash('Post Create Success! You can see it in the blog page.')
+
+    return render_template('posts/post_create.html', title='Create Post', form=form, post_created=post_created)

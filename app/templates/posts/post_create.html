@@ -3,17 +3,27 @@
 {% block title %}
 {{ title }}
 {% endblock %}
-
+c
 {% block content %}
 {{ super() }}
 <div class="post-create-container">
     <p class="create-post-p">Create Post</p>
     <form class="post-create-form" method="post">
-        {{ form.hidden_tag() }}
-        {{ form.title(placeholder="Title", class="form-control", id="floatingInput") }}
-        {{ form.content(placeholder="Content", class="form-control", id="floatingTextarea2", style="height: 400px") }}
-        {{ form.status(class="form-select") }}
-        {{ form.submit(class="btn btn-outline-light btn-lg") }}
+        {% if not post_created %}
+            {{ form.hidden_tag() }}
+            {{ form.title(placeholder="Title", class="form-control", id="floatingInput") }}
+            {{ form.content(placeholder="Content", class="form-control", id="floatingTextarea2", style="height: 400px") }}
+            {{ form.status(class="form-select") }}
+            {{ form.submit(class="btn btn-outline-light btn-lg") }}
+        {% else %}
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                    <a href="{{ url_for('posts.blog') }}" class="alert-link"> Go Blog</a>
+                </div>
+            {% endfor %}
+        {% endif %}
+
     </form>
 </div>
 {% endblock %}
