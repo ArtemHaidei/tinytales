@@ -5,8 +5,8 @@ from app.constants import UserType
 
 
 class SignUpForm(FlaskForm):
-    first_name = StringField('First Name', validators=[DataRequired()])
-    last_name = StringField('Last Name', validators=[DataRequired()])
+    full_name = StringField('First Name', validators=[DataRequired()])
+    nickname = StringField('Last Name', validators=[DataRequired()])
     email = EmailField('Email', validators=[DataRequired(), Email()])
     user_type = SelectField('Register as', choices=[UserType.READER.value, UserType.AUTHOR.value], default=UserType.READER)
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=50)])

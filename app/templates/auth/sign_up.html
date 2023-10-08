@@ -11,9 +11,26 @@
         <form class="sign-up-form" method="post">
             <h1>Sign Up</h1>
             {{ form.hidden_tag() }}
-            {{ form.first_name(placeholder="First Name", class="input-field") }}
-            {{ form.last_name(placeholder="Last Name", class="input-field") }}
+            {{ form.full_name(placeholder="Full Name", class="input-field") }}
+
+            {{ form.nickname(placeholder="Unique nickname", class="input-field") }}
+            {% if get_flashed_messages(category_filter=["nickname_error"]) %}
+                {% for message in get_flashed_messages(category_filter=["nickname_error"]) %}
+                    <div class="alert alert-warning" role="alert">
+                        {{ message }}<a href="url_for('auth.sign-in')">Sign In?</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             {{ form.email(placeholder="Email", class="input-field") }}
+            {% if get_flashed_messages(category_filter=["email_error"]) %}
+                {% for message in get_flashed_messages(category_filter=["email_error"]) %}
+                    <div class="alert alert-warning" role="alert">
+                        {{ message }}<a href="url_for('auth.sign-in')">Sign In?</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             {{ form.user_type(class="input-field") }}
             {{ form.password(placeholder="Password", class="input-field") }}
             {{ form.confirm_password(placeholder="Confirm Password", class="input-field") }}
